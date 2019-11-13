@@ -1,8 +1,10 @@
 exports.up = async function(knex, Promise) {
     await knex.schema.createTable('tournament', function(table) {
         table.increments();
-        table.integer('board_id').unsigned();
+        table.string('name').notNullable();
+        table.integer('smashtrack_id').unsigned();
         table.integer('challonge_id').unsigned();
+        table.enu('tournament_type', ['single elimination', 'double elimination', 'round robin', 'swiss']);
     });
 };
 

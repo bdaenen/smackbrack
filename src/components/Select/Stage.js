@@ -2,10 +2,10 @@ import React from "react";
 import AsyncSelect from "react-select/async";
 import smashtrack from "../../api/smashtrack";
 
-export default class User extends React.Component {
+export default class Stage extends React.Component {
   getOptions = (input, callback) => {
     smashtrack
-      .get(`/users/select?pageSize=1000`, {
+      .get(`/stages/select?pageSize=1000`, {
         params: {
           q: input
         },
