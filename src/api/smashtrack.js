@@ -19,7 +19,7 @@ let api = {
             password
         });
 
-        let success = loginAttempt && loginAttempt.data && loginAttempt.authenticated;
+        let success = loginAttempt && loginAttempt.data && loginAttempt.data.authenticated;
 
         if (success) {
           localStorage.setItem('smackbrack.user', JSON.stringify({ tag, id: loginAttempt.data.user.id }));
@@ -54,8 +54,19 @@ let api = {
         let response = await smashtrack.get(`/boards/${id}`);
         return response.data;
     },
-    createBoard: async (data) => {
 
+    createBoard: async (name, stages, users) => {
+        let response = await smashtrack.post('/boards/add', {
+            name: `smackbrack_${name}`,
+            stages: stages,
+            users: users
+        });
+
+        if (response.data.success) {
+            return response.data.data[0];
+        }
+
+        return false;
     }
 };
 

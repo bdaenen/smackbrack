@@ -1,7 +1,7 @@
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import api from '../../api/smashtrack';
+import smashtrackApi from '../../api/smashtrack';
 
 import './navbar.scss';
 
@@ -29,7 +29,7 @@ export default function() {
                 </NavDropdown>
                 <Nav.Link href="#" onClick={async (e) => {
                     e.preventDefault();
-                    const success = await api.logout();
+                    const success = await smashtrackApi.logout();
                     if (success) {
                         window.location.href = "/";
                     }

@@ -4,12 +4,12 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import api from './api/smashtrack';
+import smashtrackApi from './api/smashtrack';
 import LoginForm from './components/LoginForm';
 import { Container } from 'react-bootstrap';
 
 (async function() {
-    if (!await api.isLoggedIn()) {
+    if (!await smashtrackApi.isLoggedIn()) {
         ReactDOM.render(<Container><LoginForm /></Container>,   document.getElementById("root"))
     }
     else {

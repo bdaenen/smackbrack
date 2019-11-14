@@ -1,6 +1,6 @@
 import React from 'react';
 import { Alert, Form, Row, Col, Card, Button } from 'react-bootstrap';
-import api from '../../api/smashtrack';
+import smashtrackApi from '../../api/smashtrack';
 
 export default class LoginForm extends React.Component {
     state = {
@@ -30,7 +30,8 @@ export default class LoginForm extends React.Component {
         }
 
 
-        let success = await api.login(this.state.tag, this.state.password);
+        let success = await smashtrackApi.login(this.state.tag, this.state.password);
+
         if (success) {
             window.location.reload();
         }
