@@ -1,6 +1,7 @@
 import React from "react";
 import { Alert, Form, Row, Col, Card, Button } from "react-bootstrap";
 import * as Select from "../Select";
+import axios from 'axios';
 
 export default class Create extends React.Component {
   state = {
@@ -67,8 +68,6 @@ export default class Create extends React.Component {
     }
 
     this.setState({errors});
-
-    // TODO: create a board on SmashTrack, then submit everything to backend.
   };
 
 

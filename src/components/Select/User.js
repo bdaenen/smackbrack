@@ -1,6 +1,6 @@
 import React from "react";
 import AsyncSelect from "react-select/async";
-import smashtrack from "../../api/smashtrack";
+import { smashtrack } from "../../api/smashtrack";
 
 export default class User extends React.Component {
   getOptions = (input, callback) => {
